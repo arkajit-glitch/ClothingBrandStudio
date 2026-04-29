@@ -14,20 +14,20 @@ function ShopPage() {
           <div className="grid gap-10 md:grid-cols-[1.05fr_0.95fr]">
             <img
               src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1800&h=1180&q=80"
-              alt="Premium clothing shop banner with curated fashion presentation"
+              alt="Premium showroom banner with curated fashion presentation"
               className="h-[22rem] w-full object-cover md:h-[34rem]"
             />
             <div className="flex items-center px-6 py-10 md:px-10">
               <div className="space-y-6">
                 <p className="font-heading text-[11px] font-bold uppercase tracking-[0.34em] text-brand-accent">
-                  Shop Now
+                  Private Edit
                 </p>
                 <h1 className="font-heading text-4xl font-bold leading-tight md:text-6xl">
-                  Curated product lines presented with premium detail.
+                  A quiet showroom for curated pieces and signature direction.
                 </h1>
                 <p className="max-w-xl text-lg leading-8 text-brand-muted">
-                  Explore selected clothing pieces with pricing, finish notes, and a cleaner
-                  fashion-first presentation.
+                  A clothing presentation surface built to show mood, category, and silhouette
+                  rather than imitate a crowded shopping flow.
                 </p>
               </div>
             </div>
@@ -36,9 +36,9 @@ function ShopPage() {
 
         <MotionSection className="mx-auto mt-20 max-w-[1240px] space-y-10">
           <SectionHeading
-            eyebrow="Product Listing"
-            title="A polished clothing catalog built for discovery."
-            description="Each item is presented with category, price, and concise product detail in a format familiar to modern clothing websites."
+            eyebrow="Showroom"
+            title="A polished clothing edit built for discovery, not distraction."
+            description="Each piece is framed through category, tone, and concise product detail without turning the experience into a checkout-driven storefront."
           />
 
           <StaggerGrid className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -71,7 +71,7 @@ function ShopPage() {
                         {product.name}
                       </h2>
                     </div>
-                    <p className="font-heading text-lg font-bold text-brand-text">{product.price}</p>
+                    <span className="h-2.5 w-2.5 rotate-45 border border-brand-accent" />
                   </div>
 
                   <p className="text-base leading-7 text-brand-muted">{product.details}</p>

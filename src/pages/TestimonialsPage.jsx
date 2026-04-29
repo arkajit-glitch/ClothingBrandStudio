@@ -1,40 +1,40 @@
-import { motion } from "framer-motion";
 import MotionSection from "../components/MotionSection";
 import PageTransition from "../components/PageTransition";
 import SectionHeading from "../components/SectionHeading";
+import SectionWrapper from "../components/SectionWrapper";
 import StatsRow from "../components/StatsRow";
 import StaggerGrid from "../components/StaggerGrid";
 import TestimonialCard from "../components/TestimonialCard";
-import { fadeUp } from "../lib/motion";
-import { stats, testimonials } from "../data/siteContent";
+import { featuredMentions, stats, testimonials } from "../data/siteContent";
 
 function TestimonialsPage() {
   return (
     <PageTransition>
-      <main className="px-4 pb-28 pt-10 md:px-6 md:pt-14">
-        <MotionSection className="mx-auto max-w-[1240px] space-y-10">
+      <main>
+        <SectionWrapper className="pb-14 pt-10 md:pb-18 md:pt-14" containerClassName="space-y-10">
           <SectionHeading
             eyebrow="Testimonials"
-            title="Business trust built through cleaner presentation and stronger brand structure."
-            description="Reviews, performance signals, and placeholders for future press or featured mentions."
+            title="Creative credibility built through clearer presentation and stronger visual discipline."
+            description="Reviews, trust signals, and placeholder mention space for the brands and partners that shape the studio’s reputation."
           />
-
           <StatsRow stats={stats} />
+        </SectionWrapper>
 
+        <SectionWrapper className="py-10 md:py-12" containerClassName="space-y-12">
           <StaggerGrid className="grid gap-6 md:grid-cols-3">
             {testimonials.map((item) => (
               <TestimonialCard key={item.name} {...item} />
             ))}
           </StaggerGrid>
 
-          <StaggerGrid className="grid gap-4 border border-dashed border-[color:var(--color-brand-border)] bg-white/38 p-7 md:grid-cols-3">
-            {["Featured Mention", "Studio Partner", "Retail Collaboration"].map((item) => (
-              <motion.div key={item} variants={fadeUp} className="font-heading text-sm font-bold uppercase tracking-[0.24em] text-brand-muted">
+          <StaggerGrid className="grid gap-4 rounded-[1.25rem] border border-dashed border-[color:var(--color-brand-border)] bg-white/36 p-7 md:grid-cols-3">
+            {featuredMentions.map((item) => (
+              <MotionSection key={item} className="font-heading text-sm font-bold uppercase tracking-[0.24em] text-brand-muted">
                 {item}
-              </motion.div>
+              </MotionSection>
             ))}
           </StaggerGrid>
-        </MotionSection>
+        </SectionWrapper>
       </main>
     </PageTransition>
   );

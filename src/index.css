@@ -20,7 +20,7 @@ body {
   margin: 0;
   background: linear-gradient(120deg, #f5efe6, #e8ded4, #f5efe6);
   background-size: 200% 200%;
-  animation: gradientShift 14s ease-in-out infinite;
+  animation: gradientShift 22s ease-in-out infinite;
   color: var(--color-brand-text);
   font-family: var(--font-body);
   text-rendering: optimizeLegibility;
@@ -87,9 +87,9 @@ body {
   content: "";
   position: absolute;
   border-radius: 9999px;
-  filter: blur(120px);
-  opacity: 0.12;
-  animation: ambientFloat 16s ease-in-out infinite;
+  filter: blur(135px);
+  opacity: 0.08;
+  animation: ambientFloat 28s ease-in-out infinite;
 }
 
 .intro-grain {
@@ -116,46 +116,74 @@ body {
 }
 
 .site-ambient::before {
-  top: 10%;
-  right: 8%;
-  width: 400px;
-  height: 400px;
-  background: rgba(184, 121, 69, 0.85);
+  top: 6%;
+  right: 4%;
+  width: 380px;
+  height: 380px;
+  background: rgba(184, 121, 69, 0.44);
 }
 
 .site-ambient::after {
-  left: -8%;
-  bottom: 6%;
+  left: -6%;
+  bottom: 4%;
   width: 320px;
   height: 320px;
-  background: rgba(111, 98, 88, 0.4);
+  background: rgba(214, 195, 163, 0.34);
   opacity: 0.08;
-  animation-duration: 18s;
+  animation-duration: 30s;
   animation-delay: -4s;
+}
+
+.site-ambient::before {
+  box-shadow: 0 0 60px rgba(184, 121, 69, 0.05);
+}
+
+.site-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.03;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 0 0.65px, transparent 0.8px),
+    radial-gradient(circle at 80% 0%, rgba(23, 19, 19, 0.18) 0 0.8px, transparent 1px),
+    radial-gradient(circle at 40% 80%, rgba(184, 121, 69, 0.12) 0 0.8px, transparent 1px);
+  background-size: 10px 10px, 13px 13px, 15px 15px;
+  mix-blend-mode: multiply;
+}
+
+.hero-mesh {
+  background:
+    radial-gradient(circle at 12% 22%, rgba(184, 121, 69, 0.08), transparent 28%),
+    radial-gradient(circle at 88% 18%, rgba(214, 195, 163, 0.12), transparent 32%);
 }
 
 @media (max-width: 768px) {
   body {
-    animation-duration: 18s;
+    animation-duration: 26s;
   }
 
   .site-ambient::before {
-    width: 260px;
-    height: 260px;
-    opacity: 0.09;
-    animation-duration: 18s;
+    width: 220px;
+    height: 220px;
+    opacity: 0.06;
+    animation-duration: 28s;
   }
 
   .site-ambient::after {
-    width: 200px;
-    height: 200px;
-    opacity: 0.05;
-    animation-duration: 20s;
+    width: 180px;
+    height: 180px;
+    opacity: 0.04;
+    animation-duration: 30s;
   }
 
   .intro-grain {
     opacity: 0.32;
     animation-duration: 10s;
+  }
+
+  .site-grain {
+    opacity: 0.024;
   }
 }
 

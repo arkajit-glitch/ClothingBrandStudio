@@ -6,20 +6,25 @@ function ImageCard({ image, title, description, className = "" }) {
     <motion.article
       variants={fadeUp}
       whileHover={cardHover}
-      className={`group overflow-hidden border border-[color:var(--color-brand-border)] bg-white/72 shadow-[0_18px_40px_rgba(44,31,22,0.06)] ${className}`}
+      className={`group relative overflow-hidden rounded-[1.2rem] border border-[color:var(--color-brand-border)] bg-white/72 shadow-[0_14px_30px_rgba(44,31,22,0.05)] ${className}`}
     >
       <div className="relative overflow-hidden">
         <motion.img
           src={image}
           alt={title}
-          className="h-[21rem] w-full object-cover"
+          className="h-[24rem] w-full object-cover"
           whileHover={imageHover}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/12 via-brand-dark/0 to-transparent transition duration-300 group-hover:from-brand-dark/30 group-hover:brightness-105" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/40 via-brand-dark/8 to-transparent transition duration-500 group-hover:from-brand-dark/50" />
+        <div className="absolute left-7 right-7 top-7 flex items-center justify-between opacity-0 transition duration-500 group-hover:opacity-100">
+          <span className="h-[1px] flex-1 bg-brand-accent/55" />
+          <span className="mx-3 h-2.5 w-2.5 rotate-45 border border-brand-accent" />
+          <span className="h-[1px] flex-1 bg-brand-accent/55" />
+        </div>
       </div>
-      <div className="space-y-3 p-7">
-        <h3 className="font-heading text-[1.65rem] font-bold leading-tight text-brand-text">{title}</h3>
-        {description ? <p className="text-base leading-7 text-brand-muted">{description}</p> : null}
+      <div className="absolute inset-x-0 bottom-0 z-[2] space-y-2.5 p-7 text-white">
+        <h3 className="font-heading text-[1.58rem] font-bold leading-tight">{title}</h3>
+        {description ? <p className="max-w-sm text-[0.95rem] leading-7 text-white/74">{description}</p> : null}
       </div>
     </motion.article>
   );

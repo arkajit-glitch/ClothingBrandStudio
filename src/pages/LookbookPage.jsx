@@ -1,14 +1,17 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { X } from "lucide-react";
 import { useMemo, useState } from "react";
 import MotionSection from "../components/MotionSection";
 import PageTransition from "../components/PageTransition";
 import SectionHeading from "../components/SectionHeading";
+import SectionWrapper from "../components/SectionWrapper";
 import StaggerGrid from "../components/StaggerGrid";
 import { lookbookFilters, lookbookGallery } from "../data/siteContent";
-import { fadeUp } from "../lib/motion";
+import { fadeUp, easeLuxury } from "../lib/motion";
 
 function LookbookPage() {
   const [active, setActive] = useState("All");
+  const [selected, setSelected] = useState(null);
 
   const filtered = useMemo(() => {
     if (active === "All") return lookbookGallery;
@@ -17,12 +20,12 @@ function LookbookPage() {
 
   return (
     <PageTransition>
-      <main className="px-4 pb-28 pt-10 md:px-6 md:pt-14">
-        <MotionSection className="mx-auto max-w-[1240px] space-y-10">
+      <main>
+        <SectionWrapper className="pb-10 pt-10 md:pb-14 md:pt-14" containerClassName="space-y-10">
           <SectionHeading
             eyebrow="Lookbook"
-            title="Editorial gallery shaped with cleaner rhythm and business-ready polish."
-            description="Filter by presentation direction while keeping the visual tone warm, balanced, and consistent."
+            title="An immersive editorial gallery built with rhythm, restraint, and stronger image presence."
+            description="Filter by category and move through the visual system like a digital fashion spread."
           />
 
           <div className="flex flex-wrap gap-3 border-b border-[color:var(--color-brand-border)] pb-6">
@@ -31,46 +34,101 @@ function LookbookPage() {
                 key={filter}
                 type="button"
                 onClick={() => setActive(filter)}
-                className={`px-4 py-2 font-heading text-[11px] font-bold uppercase tracking-[0.22em] transition duration-300 ${
+                className={`inline-flex items-center gap-3 px-4 py-2.5 font-heading text-[11px] font-bold uppercase tracking-[0.24em] transition duration-300 ${
                   active === filter
-                    ? "bg-brand-text text-brand-bg-soft"
+                    ? "bg-brand-text text-brand-bg-soft shadow-[0_12px_22px_rgba(29,22,18,0.1)]"
                     : "border border-[color:var(--color-brand-border)] bg-white/45 text-brand-muted hover:border-brand-accent hover:text-brand-accent"
                 }`}
               >
+                <span className="h-2 w-2 rotate-45 border border-current" />
                 {filter}
               </button>
             ))}
           </div>
+        </SectionWrapper>
 
-          <StaggerGrid className="grid gap-6 md:grid-cols-3 md:grid-rows-[minmax(16rem,auto)_minmax(16rem,auto)_minmax(16rem,auto)]">
+        <SectionWrapper className="py-6 md:py-8" containerClassName="">
+          <StaggerGrid className="grid gap-6 md:grid-cols-3 md:grid-rows-[minmax(16rem,auto)_minmax(16rem,auto)_minmax(16rem,auto)_minmax(16rem,auto)]">
             {filtered.map((item) => (
               <motion.figure
                 key={`${item.title}-${item.category}`}
                 variants={fadeUp}
-                whileHover={{ y: -3 }}
-                transition={{ duration: 0.26, ease: [0.25, 0.9, 0.3, 1] }}
-                className={`group overflow-hidden border border-[color:var(--color-brand-border)] bg-white/46 shadow-[0_14px_30px_rgba(45,31,23,0.04)] ${item.span}`}
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.34, ease: easeLuxury }}
+                className={`group relative overflow-hidden rounded-[1.3rem] border border-[color:var(--color-brand-border)] bg-white/46 shadow-[0_16px_34px_rgba(45,31,23,0.04)] ${item.span}`}
               >
-                <div className="relative h-full min-h-[19rem] overflow-hidden">
+                <button type="button" onClick={() => setSelected(item)} className="relative h-full min-h-[19rem] w-full overflow-hidden text-left">
                   <motion.img
                     src={item.image}
                     alt={item.title}
                     className="h-full w-full object-cover"
-                    whileHover={{ scale: 1.035, filter: "brightness(1.02)" }}
-                    transition={{ duration: 0.28, ease: [0.25, 0.9, 0.3, 1] }}
+                    whileHover={{ scale: 1.05, filter: "brightness(1.05) contrast(1.03)" }}
+                    transition={{ duration: 0.42, ease: easeLuxury }}
                   />
-                  <div className="absolute inset-0 bg-brand-dark/10 transition duration-300 group-hover:bg-brand-dark/26" />
-                  <figcaption className="absolute inset-x-0 bottom-0 z-10 space-y-2 bg-gradient-to-t from-brand-dark/80 via-brand-dark/10 to-transparent p-6 text-white">
-                    <p className="font-heading text-[11px] font-bold uppercase tracking-[0.25em] text-white/72">
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/66 via-brand-dark/12 to-transparent transition duration-500 group-hover:from-brand-dark/74" />
+                  <figcaption className="absolute inset-x-0 bottom-0 z-10 space-y-2 p-6 text-white">
+                    <p className="font-heading text-[10px] font-bold uppercase tracking-[0.3em] text-white/68">
                       {item.category}
                     </p>
-                    <p className="font-heading text-2xl font-bold">{item.title}</p>
+                    <p className="font-heading text-[1.75rem] font-bold leading-tight">{item.title}</p>
                   </figcaption>
-                </div>
+                </button>
               </motion.figure>
             ))}
           </StaggerGrid>
-        </MotionSection>
+        </SectionWrapper>
+
+        <AnimatePresence>
+          {selected ? (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[90] bg-[rgba(16,13,12,0.84)] p-4 backdrop-blur-sm md:p-8"
+              onClick={() => setSelected(null)}
+            >
+              <div className="mx-auto flex h-full max-w-[1200px] items-center justify-center">
+                <motion.div
+                  initial={{ opacity: 0, y: 18, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 12, scale: 0.98 }}
+                  transition={{ duration: 0.4, ease: easeLuxury }}
+                  className="relative w-full overflow-hidden rounded-[1.6rem] border border-white/12 bg-brand-dark shadow-[0_24px_60px_rgba(0,0,0,0.24)]"
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setSelected(null)}
+                    className="absolute right-4 top-4 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-black/20 text-white"
+                    aria-label="Close image"
+                  >
+                    <X size={18} />
+                  </button>
+                  <div className="grid gap-0 md:grid-cols-[1.1fr_0.9fr]">
+                    <img src={selected.image} alt={selected.title} className="h-[32rem] w-full object-cover md:h-[82vh]" />
+                    <div className="flex items-end p-8 md:p-10">
+                      <div className="space-y-4 text-white">
+                        <div className="flex items-center gap-3">
+                          <span className="h-[1px] w-10 bg-brand-accent/70" />
+                          <span className="h-2.5 w-2.5 rotate-45 border border-brand-accent" />
+                          <p className="font-heading text-[11px] font-bold uppercase tracking-[0.3em] text-brand-accent">
+                            {selected.category}
+                          </p>
+                        </div>
+                        <h2 className="font-heading text-[2.4rem] font-bold leading-[0.96] tracking-[-0.03em]">
+                          {selected.title}
+                        </h2>
+                        <p className="max-w-md text-[1rem] leading-8 text-white/70">
+                          A curated NOIR ATELIER lookbook frame shaped for campaign rhythm, clothing detail, and premium visual continuity.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
       </main>
     </PageTransition>
   );

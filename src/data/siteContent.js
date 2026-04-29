@@ -23,162 +23,167 @@ export const navLinks = [
 export const trustPoints = [
   "Custom clothing identity",
   "Seasonal collection showcase",
-  "Store & social promotion",
+  "Store and social promotion",
 ];
 
 export const heroSliderImages = [
   {
-    title: "Streetwear Campaign",
-    alt: "Wide-format fashion campaign image with streetwear styling",
+    title: "Noir Campaign",
+    alt: "Landscape fashion campaign image with tailored clothing and cinematic light",
+    image: editorialImage("photo-1515886657613-9f3515b0c78f", { w: 1800, h: 1120 }),
+  },
+  {
+    title: "Studio Narrative",
+    alt: "Landscape editorial fashion shoot in a neutral studio",
+    image: editorialImage("photo-1529139574466-a303027c1d8b", { w: 1800, h: 1120 }),
+  },
+  {
+    title: "Modern Silhouette",
+    alt: "Landscape luxury fashion image with modern silhouette and clean background",
+    image: editorialImage("photo-1500917293891-ef795e70e1f6", { w: 1800, h: 1120 }),
+  },
+  {
+    title: "Atelier Movement",
+    alt: "Landscape editorial image showing fashion movement with premium styling",
+    image: editorialImage("photo-1483985988355-763728e1935b", { w: 1800, h: 1120 }),
+  },
+  {
+    title: "Quiet Confidence",
+    alt: "Landscape fashion campaign frame with warm editorial tone",
     image: editorialImage("photo-1496747611176-843222e1e57c", { w: 1800, h: 1120 }),
   },
-  {
-    title: "Neutral Studio Edit",
-    alt: "Landscape editorial fashion portrait in a neutral studio tone",
-    image: editorialImage("photo-1524504388940-b1c1722653e1", { w: 1800, h: 1120 }),
-  },
-  {
-    title: "Modern Street Line",
-    alt: "Landscape fashion image with modern clothing and clean background",
-    image: editorialImage("photo-1515886657613-9f3515b0c78f", { w: 1800, h: 1120 }),
-  },
-  {
-    title: "Lifestyle Story",
-    alt: "Wide editorial lifestyle shot with premium wardrobe styling",
-    image: editorialImage("photo-1504609813442-a8924e83f76e", { w: 1800, h: 1120 }),
-  },
-  {
-    title: "Clean Editorial Motion",
-    alt: "Landscape street-style fashion image with editorial mood",
-    image: editorialImage("photo-1515886657613-9f3515b0c78f", { w: 1800, h: 1120 }),
-  },
 ];
+
+export const identitySpotlight = {
+  eyebrow: "Identity",
+  title: "Not made for everyone. Built for those who stand apart.",
+  text: "NOIR ATELIER frames clothing brands through mood, hierarchy, and visual restraint so the label feels memorable before anyone reads the product line.",
+  image: editorialImage("photo-1494790108377-be9c29b29330", { w: 1400, h: 1700 }),
+};
 
 export const collectionCards = [
   {
     title: "Streetwear Identity",
-    description: "Clean silhouettes and bold layering presented with business-ready polish.",
+    description: "Bold layering, sharp silhouettes, and a campaign-led point of view for labels that lead with attitude.",
     image: editorialImage("photo-1487412720507-e7ab37603c6f", { w: 1100, h: 1400 }),
   },
   {
     title: "Premium Casuals",
-    description: "Soft neutrals, balanced tailoring, and elevated everyday brand language.",
-    image: editorialImage("photo-1494790108377-be9c29b29330", { w: 1100, h: 1400 }),
+    description: "Soft structure, refined neutrals, and a calmer narrative built for elevated everyday dressing.",
+    image: editorialImage("photo-1483985988355-763728e1935b", { w: 1100, h: 1400 }),
   },
   {
     title: "Seasonal Drops",
-    description: "Curated capsule presentations that keep the collection narrative consistent.",
-    image: editorialImage("photo-1517836357463-d25dfeac3438", { w: 1100, h: 1400 }),
+    description: "Editorial capsule framing that gives each release its own pace, tone, and visual memory.",
+    image: editorialImage("photo-1529139574466-a303027c1d8b", { w: 1100, h: 1400 }),
   },
 ];
 
 export const lookbookPreview = [
   {
     title: "Lead Frame",
-    image: editorialImage("photo-1483985988355-763728e1935b", { w: 1000, h: 1500 }),
+    category: "Streetwear",
+    image: editorialImage("photo-1496747611176-843222e1e57c", { w: 980, h: 1500 }),
     className: "md:row-span-2",
   },
   {
     title: "Modern Motion",
-    image: editorialImage("photo-1509631179647-0177331693ae", { w: 1700, h: 1020 }),
+    category: "Casual",
+    image: editorialImage("photo-1509631179647-0177331693ae", { w: 1600, h: 980 }),
     className: "md:col-span-2",
   },
   {
     title: "Quiet Texture",
-    image: editorialImage("photo-1529139574466-a303027c1d8b", { w: 1000, h: 1300 }),
+    category: "Formals",
+    image: editorialImage("photo-1515886657613-9f3515b0c78f", { w: 980, h: 1200 }),
     className: "",
   },
   {
     title: "Everyday Statement",
-    image: editorialImage("photo-1483985988355-763728e1935b", { w: 1000, h: 1300 }),
-    className: "",
-  },
-];
-
-export const services = [
-  {
-    title: "Clothing Brand Identity",
-    text: "Visual language, collection positioning, and cohesive digital presentation.",
-  },
-  {
-    title: "Collection Presentation",
-    text: "Editorial layouts that turn collections into brand stories instead of product lists.",
-  },
-  {
-    title: "Photoshoot Direction",
-    text: "Campaign framing, styling tone, and image hierarchy designed for fashion business trust.",
-  },
-  {
-    title: "Social Media Campaign Visuals",
-    text: "Launch-ready assets built to carry a premium identity across channels.",
-  },
-  {
-    title: "Store Promotion Website",
-    text: "Professional web presence that supports store visits, inquiries, and long-term recognition.",
-  },
-];
-
-export const shopProducts = [
-  {
-    name: "Noir Signature Blazer",
-    category: "Formals",
-    price: "₹7,990",
-    details: "Structured tailoring, soft shoulder line, and premium finish for evening and occasion wear.",
-    image: "https://i.pinimg.com/originals/93/3d/0f/933d0f684cb2153dd99968b5b8a4648b.jpg",
-  },
-  {
-    name: "Studio Pleat Trousers",
-    category: "Formals",
-    price: "₹4,850",
-    details: "Straight-leg formal trousers designed for a sharper silhouette and all-day comfort.",
-    image: "https://i.pinimg.com/originals/9e/81/69/9e8169908f3759f7dc060ebf80ca5a22.jpg",
-  },
-  {
-    name: "Streetline Overshirt",
-    category: "Streetwear",
-    price: "₹3,990",
-    details: "Layer-friendly overshirt with elevated street styling and clean branded detailing.",
-    image: "https://i.pinimg.com/originals/5f/c4/b1/5fc4b1e9c7caeea23f232a88a80a72aa.jpg",
-  },
-  {
-    name: "Classic Casual Co-ord",
-    category: "Casual",
-    price: "₹5,490",
-    details: "Relaxed premium set with warm neutral styling made for everyday polished dressing.",
-    image: "https://i.pinimg.com/originals/54/9b/5d/549b5de639b955634f66e25b4f676620.jpg",
-  },
-  {
-    name: "Seasonal Edit Dress",
     category: "Seasonal",
-    price: "₹6,250",
-    details: "A statement seasonal piece with lighter structure, modern movement, and editorial finish.",
-    image: "https://i.pinimg.com/originals/47/16/24/47162415eeec0e5e7c5cf8c4c59bbab0.jpg",
-  },
-  {
-    name: "Evening Luxe Outerwear",
-    category: "Formals",
-    price: "₹8,750",
-    details: "Premium outerwear layer built for standout presentation with refined luxury appeal.",
-    image: "https://i.pinimg.com/originals/fc/00/36/fc00364d79d124f34f8edb372b5a9fb6.png",
+    image: editorialImage("photo-1524504388940-b1c1722653e1", { w: 980, h: 1200 }),
+    className: "",
   },
 ];
 
 export const businessValues = [
   {
     title: "Visual Identity",
-    text: "Sharper first impressions through consistent styling, layout, and photography direction.",
+    text: "Sharper first impressions through cohesive art direction, layout rhythm, and image hierarchy.",
   },
   {
     title: "Collection Presentation",
-    text: "Every drop framed with a clear business story and polished showcase structure.",
+    text: "Every drop reads like a point of view rather than a stack of products on a grid.",
   },
   {
     title: "Social Media Ready Assets",
-    text: "Editorial content blocks that translate smoothly into Instagram and promotional formats.",
+    text: "Campaign-ready imagery and structure that translate naturally into launch and content formats.",
   },
   {
     title: "Store Visit Conversion",
-    text: "A cleaner web experience that builds confidence and moves people toward contact or visit.",
+    text: "A stronger digital presence that makes the brand easier to trust, remember, and contact.",
+  },
+];
+
+export const services = [
+  {
+    title: "Clothing Brand Identity",
+    text: "Build a consistent visual language for your label across site, imagery, and rollout moments.",
+  },
+  {
+    title: "Collection Presentation",
+    text: "Shape drops into editorial stories with clearer positioning, sharper sequencing, and stronger mood.",
+  },
+  {
+    title: "Photoshoot Direction",
+    text: "Guide framing, styling, crop logic, and tone so every image works harder for the brand.",
+  },
+  {
+    title: "Social Media Campaign Visuals",
+    text: "Create a launch-ready visual system that feels premium across reels, posts, stories, and lookbooks.",
+  },
+  {
+    title: "Store Promotion Website",
+    text: "Deliver a polished brand site that supports inquiries, studio credibility, and store conversion.",
+  },
+];
+
+export const shopProducts = [
+  {
+    name: "Noir Signature Blazer",
+    category: "Premium",
+    details: "Structured tailoring, soft shoulder line, and premium finish for evening and occasion wear.",
+    image: editorialImage("photo-1503341455253-b2e723bb3dbb", { w: 980, h: 1400 }),
+  },
+  {
+    name: "Studio Pleat Trousers",
+    category: "Premium",
+    details: "Straight-leg tailoring designed for a cleaner silhouette and all-day composure.",
+    image: editorialImage("photo-1512436991641-6745cdb1723f", { w: 980, h: 1400 }),
+  },
+  {
+    name: "Streetline Overshirt",
+    category: "Streetwear",
+    details: "Layer-friendly outer piece with elevated street styling and a sharper campaign tone.",
+    image: editorialImage("photo-1487412720507-e7ab37603c6f", { w: 980, h: 1400 }),
+  },
+  {
+    name: "Classic Casual Co-ord",
+    category: "Casual",
+    details: "Relaxed premium set shaped for polished everyday dressing and easier visual continuity.",
+    image: editorialImage("photo-1483985988355-763728e1935b", { w: 980, h: 1400 }),
+  },
+  {
+    name: "Seasonal Edit Dress",
+    category: "Seasonal",
+    details: "A seasonal statement with lighter structure, softer movement, and editorial finish.",
+    image: editorialImage("photo-1496747611176-843222e1e57c", { w: 980, h: 1400 }),
+  },
+  {
+    name: "Evening Luxe Outerwear",
+    category: "Premium",
+    details: "A refined outerwear layer built for stronger presentation and quieter luxury impact.",
+    image: editorialImage("photo-1494790108377-be9c29b29330", { w: 980, h: 1400 }),
   },
 ];
 
@@ -187,131 +192,137 @@ export const testimonials = [
     name: "Aarav Mehta",
     role: "Streetwear Label Founder",
     quote:
-      "The presentation made our brand feel established. It gave the collection structure and made the store experience far more premium.",
+      "The site finally made our brand feel like it had a point of view. It looked less like a product page and more like a campaign.",
   },
   {
     name: "Sana Kapoor",
     role: "Fashion Studio Director",
     quote:
-      "The balance between editorial visuals and business clarity is exactly what we needed. Clean, credible, and easy to present to partners.",
+      "What stood out was the restraint. It felt premium, clear, and business-ready without losing the fashion energy.",
   },
   {
     name: "Dev Malhotra",
     role: "Campaign Photographer",
     quote:
-      "Everything feels intentional. The website supports the clothing instead of competing with it, which makes the brand stronger.",
+      "Everything supported the clothing instead of crowding it. That balance made the brand feel much more established.",
   },
 ];
 
 export const stats = [
-  { label: "Collection launches supported", value: "45+" },
-  { label: "Brand identity projects", value: "18" },
-  { label: "Retail and studio clients", value: "12+" },
+  { label: "Collection concepts", value: "50+" },
+  { label: "Brand visuals shaped", value: "20+" },
+  { label: "Responsive experience", value: "100%" },
 ];
 
-export const lookbookFilters = ["All", "Streetwear", "Casual", "Formals", "Seasonal"];
+export const lookbookFilters = ["All", "Streetwear", "Casual", "Premium", "Seasonal"];
 
 export const lookbookGallery = [
   {
     title: "Streetwear Lead",
     category: "Streetwear",
-    image: "https://i.pinimg.com/originals/5f/c4/b1/5fc4b1e9c7caeea23f232a88a80a72aa.jpg",
+    image: editorialImage("photo-1487412720507-e7ab37603c6f", { w: 980, h: 1500 }),
     span: "md:row-span-2",
   },
   {
     title: "Streetwear Layering",
     category: "Streetwear",
-    image: "https://i.pinimg.com/originals/d7/ef/7b/d7ef7b5cfcfd5bfc545c307613021ea0.jpg",
-    span: "",
-  },
-  {
-    title: "Streetwear Portrait",
-    category: "Streetwear",
-    image: "https://i.pinimg.com/originals/99/84/dc/9984dc2393bac97d6d9581dfdf9c3ed1.jpg",
+    image: editorialImage("photo-1500917293891-ef795e70e1f6", { w: 980, h: 1200 }),
     span: "",
   },
   {
     title: "Streetwear Motion",
     category: "Streetwear",
-    image: "https://i.pinimg.com/originals/51/7f/fd/517ffdbc33620528524824c768da0933.jpg",
+    image: editorialImage("photo-1529139574466-a303027c1d8b", { w: 1600, h: 980 }),
     span: "md:col-span-2",
   },
   {
     title: "Casual Frame",
     category: "Casual",
-    image: "https://i.pinimg.com/originals/54/9b/5d/549b5de639b955634f66e25b4f676620.jpg",
+    image: editorialImage("photo-1483985988355-763728e1935b", { w: 980, h: 1250 }),
     span: "",
-  },
-  {
-    title: "Casual Structure",
-    category: "Casual",
-    image: "https://i.pinimg.com/originals/a3/ed/88/a3ed8848f0852b0b92fc6378dfd40dec.jpg",
-    span: "",
-  },
-  {
-    title: "Casual Ease",
-    category: "Casual",
-    image: "https://i.pinimg.com/originals/a6/06/42/a60642d4335633db035331f1634cdae7.webp",
-    span: "md:row-span-2",
   },
   {
     title: "Casual Studio",
     category: "Casual",
-    image: "https://i.pinimg.com/originals/5f/15/80/5f15804b8229ee779eecc4a702a35d15.jpg",
+    image: editorialImage("photo-1524504388940-b1c1722653e1", { w: 980, h: 1500 }),
+    span: "md:row-span-2",
+  },
+  {
+    title: "Quiet Ease",
+    category: "Casual",
+    image: editorialImage("photo-1515886657613-9f3515b0c78f", { w: 980, h: 1200 }),
     span: "",
   },
   {
     title: "Formal Edit",
-    category: "Formals",
-    image: "https://i.pinimg.com/webp85/736x/df/7f/51/df7f51baf5d6c7e5ec3d83afcca89e7f.webp",
+    category: "Premium",
+    image: editorialImage("photo-1503341455253-b2e723bb3dbb", { w: 1600, h: 980 }),
     span: "md:col-span-2",
   },
   {
     title: "Formal Portrait",
-    category: "Formals",
-    image: "https://i.pinimg.com/originals/f3/26/99/f32699769eeb32b71030c5e1353f0603.png",
+    category: "Premium",
+    image: editorialImage("photo-1494790108377-be9c29b29330", { w: 980, h: 1400 }),
     span: "",
   },
   {
-    title: "Formal Statement",
-    category: "Formals",
-    image: "https://i.pinimg.com/originals/9e/81/69/9e8169908f3759f7dc060ebf80ca5a22.jpg",
-    span: "",
-  },
-  {
-    title: "Formal Campaign",
-    category: "Formals",
-    image: "https://i.pinimg.com/originals/94/a9/e2/94a9e2721f6468292a58fb76d40ec7b0.jpg",
+    title: "Tailored Still",
+    category: "Premium",
+    image: editorialImage("photo-1512436991641-6745cdb1723f", { w: 980, h: 1500 }),
     span: "md:row-span-2",
-  },
-  {
-    title: "Formal Tailoring",
-    category: "Formals",
-    image: "https://i.pinimg.com/originals/93/3d/0f/933d0f684cb2153dd99968b5b8a4648b.jpg",
-    span: "",
-  },
-  {
-    title: "Formal Luxe",
-    category: "Formals",
-    image: "https://i.pinimg.com/originals/fc/00/36/fc00364d79d124f34f8edb372b5a9fb6.png",
-    span: "",
   },
   {
     title: "Seasonal Texture",
     category: "Seasonal",
-    image: "https://i.pinimg.com/originals/47/16/24/47162415eeec0e5e7c5cf8c4c59bbab0.jpg",
-    span: "",
-  },
-  {
-    title: "Seasonal Layering",
-    category: "Seasonal",
-    image: "https://i.pinimg.com/originals/35/53/29/355329d85b4acb46c857a98350a20576.jpg",
+    image: editorialImage("photo-1515886657613-9f3515b0c78f", { w: 980, h: 1250 }),
     span: "",
   },
   {
     title: "Seasonal Direction",
     category: "Seasonal",
-    image: "https://i.pinimg.com/originals/eb/92/11/eb92119da306eb5d5dd9dafba2a5f59c.png",
+    image: editorialImage("photo-1496747611176-843222e1e57c", { w: 980, h: 1500 }),
     span: "",
+  },
+  {
+    title: "Soft Horizon",
+    category: "Seasonal",
+    image: editorialImage("photo-1509631179647-0177331693ae", { w: 1600, h: 980 }),
+    span: "md:col-span-2",
+  },
+];
+
+export const aboutBlocks = [
+  {
+    title: "Brand Story",
+    text: "NOIR ATELIER was shaped for labels that need more than a working website. It exists for brands that want a stronger emotional first impression and a cleaner business presence.",
+  },
+  {
+    title: "Mission",
+    text: "Create fashion websites that feel editorial, credible, and commercially useful without collapsing into generic retail templates.",
+  },
+  {
+    title: "Vision",
+    text: "Build digital fashion identities where presentation feels as intentional as the collection itself.",
+  },
+  {
+    title: "Why Choose Us",
+    text: "Because good clothing can still feel forgettable online without hierarchy, restraint, and a point of view. We build the missing layer.",
+  },
+  {
+    title: "Founder Note",
+    text: "Use this space for the personal story, creative discipline, and long-view ambition behind the label or studio.",
+  },
+];
+
+export const featuredMentions = ["Featured Mention", "Studio Partner", "Retail Collaboration"];
+
+export const editorialShowcase = [
+  {
+    title: "Collection Philosophy",
+    text: "Each category is shaped as a campaign mood rather than a product shelf, keeping the label readable and emotionally distinctive.",
+  },
+  {
+    title: "Campaign Pacing",
+    text: "The site gives every release room to breathe through stronger image sequencing, visual contrast, and cleaner spacing.",
   },
 ];

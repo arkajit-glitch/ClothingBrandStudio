@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { navLinks } from "../data/siteContent";
 import BrandLockup from "./BrandLockup";
+import ButtonLink from "./ButtonLink";
 
 function SiteLayout() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,23 +26,24 @@ function SiteLayout() {
   return (
     <div className="relative min-h-screen bg-transparent text-brand-text">
       <div className="site-ambient" aria-hidden="true" />
+      <div className="site-grain" aria-hidden="true" />
       <header
         className={`sticky top-0 z-40 border-b transition duration-300 ${
           scrolled
-            ? "border-[color:var(--color-brand-border)] bg-[rgba(247,241,232,0.88)] backdrop-blur-xl"
+            ? "border-[color:var(--color-brand-border)] bg-[rgba(247,241,232,0.78)] backdrop-blur-xl"
             : "border-transparent bg-transparent"
         }`}
       >
         <div className="mx-auto flex max-w-[1240px] items-center justify-between gap-6 px-4 py-5 md:px-6">
           <BrandLockup shared asLink className="relative z-[2]" />
 
-          <nav className="hidden items-center gap-8 lg:flex">
+          <nav className="hidden items-center gap-7 lg:flex">
             {navLinks.map((link) => (
               <NavLink
                 key={link.href}
                 to={link.href}
                 className={({ isActive }) =>
-                  `font-heading text-[11px] font-bold uppercase tracking-[0.24em] transition ${
+                  `relative font-heading text-[11px] font-bold uppercase tracking-[0.24em] transition ${
                     isActive ? "text-brand-accent" : "text-brand-text hover:text-brand-accent"
                   }`
                 }
@@ -52,12 +54,7 @@ function SiteLayout() {
           </nav>
 
           <div className="hidden items-center gap-4 lg:flex">
-            <Link
-              to="/shop"
-              className="inline-flex items-center justify-center bg-brand-text px-5 py-3 font-heading text-[11px] font-bold uppercase tracking-[0.22em] text-white shadow-[0_12px_26px_rgba(29,22,18,0.12)] transition hover:bg-brand-dark"
-            >
-              Shop Now
-            </Link>
+            <ButtonLink to="/contact" className="px-5 py-3">Contact Us</ButtonLink>
           </div>
 
           <button
@@ -77,7 +74,7 @@ function SiteLayout() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.25 }}
-              className="border-t border-[color:var(--color-brand-border)] bg-brand-bg-soft px-4 py-4 lg:hidden"
+              className="border-t border-[color:var(--color-brand-border)] bg-brand-bg-soft/96 px-4 py-4 backdrop-blur-xl lg:hidden"
             >
               <div className="mx-auto flex max-w-[1240px] flex-col gap-4">
                 {navLinks.map((link) => (
@@ -89,12 +86,7 @@ function SiteLayout() {
                     {link.label}
                   </NavLink>
                 ))}
-                <Link
-                  to="/shop"
-                  className="mt-2 inline-flex items-center justify-center bg-brand-text px-5 py-3 font-heading text-[11px] font-bold uppercase tracking-[0.22em] text-white"
-                >
-                  Shop Now
-                </Link>
+                <ButtonLink to="/contact" className="mt-2">Contact Us</ButtonLink>
               </div>
             </motion.div>
           ) : null}
@@ -103,14 +95,18 @@ function SiteLayout() {
 
       <Outlet />
 
-      <footer className="border-t border-[color:var(--color-brand-border)] bg-brand-bg-soft">
+      <footer className="relative border-t border-[color:var(--color-brand-border)] bg-brand-bg-soft/92">
         <div className="mx-auto grid max-w-[1240px] gap-10 px-4 py-16 md:grid-cols-[1.2fr_0.8fr_0.8fr] md:px-6">
           <div className="space-y-5">
             <BrandLockup />
             <p className="max-w-md text-base leading-8 text-brand-muted">
-              Premium clothing branding studio focused on collection showcase, fashion storytelling,
-              and business-ready brand presence.
+              Clothing that speaks before the logo does. Premium clothing branding studio for labels
+              that want a clearer visual identity and stronger online presence.
             </p>
+            <div className="flex items-center gap-3">
+              <span className="h-[1px] w-12 bg-brand-accent/55" />
+              <span className="h-2 w-2 rotate-45 border border-brand-accent" />
+            </div>
           </div>
 
           <div className="space-y-4">
