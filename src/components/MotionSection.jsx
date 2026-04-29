@@ -1,17 +1,29 @@
 import { motion } from "framer-motion";
-import { easeLuxury, viewportOnce } from "../lib/motion";
+import { sectionReveal, viewportOnce } from "../lib/motion";
 
-function MotionSection({ children, className = "", delay = 0 }) {
+function MotionSection({ children, className = "", delay = 0, as: Tag = "section" }) {
+  const MotionTag = motion.create(Tag);
+  const variant = {
+    hidden: sectionReveal.hidden,
+    visible: {
+      ...sectionReveal.visible,
+      transition: {
+        ...sectionReveal.visible.transition,
+        delay,
+      },
+    },
+  };
+
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
+    <MotionTag
+      variants={variant}
+      initial="hidden"
+      whileInView="visible"
       viewport={viewportOnce}
-      transition={{ duration: 0.7, ease: easeLuxury, delay }}
       className={className}
     >
       {children}
-    </motion.section>
+    </MotionTag>
   );
 }
 

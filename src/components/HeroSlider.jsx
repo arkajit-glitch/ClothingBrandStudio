@@ -10,7 +10,7 @@ function HeroSlider({ items }) {
 
     const intervalId = window.setInterval(() => {
       setActiveIndex((current) => (current + 1) % items.length);
-    }, 5600);
+    }, 5400);
 
     return () => window.clearInterval(intervalId);
   }, [items]);
@@ -32,10 +32,10 @@ function HeroSlider({ items }) {
           key={activeItem.image}
           src={activeItem.image}
           alt={activeItem.alt}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, scale: 1.022 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.95, ease: easeLuxury }}
+          initial={{ opacity: 0, scale: 0.992, y: 20 }}
+          animate={{ opacity: 1, scale: 1.018, y: 0 }}
+          exit={{ opacity: 0, scale: 0.996 }}
+          transition={{ duration: 1.75, ease: easeLuxury }}
           className="absolute inset-0 h-full w-full object-cover saturate-[0.9] contrast-[1.02]"
         />
         </AnimatePresence>
@@ -43,10 +43,10 @@ function HeroSlider({ items }) {
 
       <div className="absolute inset-x-0 bottom-0 z-[2] flex items-end justify-between gap-6 p-4 md:p-6">
         <div className="pointer-events-none max-w-[15rem] space-y-1.5 rounded-2xl border border-white/10 bg-[rgba(20,16,13,0.18)] px-4 py-3 backdrop-blur-md">
-          <p className="font-heading text-[9px] font-bold uppercase tracking-[0.32em] text-white/54">
+          <p className="type-eyebrow text-[9px] text-white/54">
             Featured Frame
           </p>
-          <p className="font-heading text-[0.96rem] font-semibold text-white/88">{activeItem.title}</p>
+          <p className="type-subheading text-[0.96rem] text-white/88">{activeItem.title}</p>
         </div>
 
         <div className="flex items-center gap-2 rounded-full border border-white/10 bg-[rgba(20,16,13,0.16)] px-3 py-2 backdrop-blur-md">

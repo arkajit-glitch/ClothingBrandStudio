@@ -3,11 +3,14 @@ import { X } from "lucide-react";
 import { useMemo, useState } from "react";
 import MotionSection from "../components/MotionSection";
 import PageTransition from "../components/PageTransition";
+import Eyebrow from "../components/Eyebrow";
+import ImageReveal from "../components/ImageReveal";
+import Paragraph from "../components/Paragraph";
 import SectionHeading from "../components/SectionHeading";
 import SectionWrapper from "../components/SectionWrapper";
 import StaggerGrid from "../components/StaggerGrid";
 import { lookbookFilters, lookbookGallery } from "../data/siteContent";
-import { fadeUp, easeLuxury } from "../lib/motion";
+import { buttonHover, buttonTap, cardHover, easeLuxury, fadeUp } from "../lib/motion";
 
 function LookbookPage() {
   const [active, setActive] = useState("All");
@@ -30,11 +33,13 @@ function LookbookPage() {
 
           <div className="flex flex-wrap gap-3 border-b border-[color:var(--color-brand-border)] pb-6">
             {lookbookFilters.map((filter) => (
-              <button
+              <motion.button
                 key={filter}
                 type="button"
                 onClick={() => setActive(filter)}
-                className={`inline-flex items-center gap-3 px-4 py-2.5 font-heading text-[11px] font-bold uppercase tracking-[0.24em] transition duration-300 ${
+                whileHover={buttonHover}
+                whileTap={buttonTap}
+                className={`inline-flex items-center gap-3 px-4 py-2.5 type-eyebrow tracking-[0.24em] transition duration-300 ${
                   active === filter
                     ? "bg-brand-text text-brand-bg-soft shadow-[0_12px_22px_rgba(29,22,18,0.1)]"
                     : "border border-[color:var(--color-brand-border)] bg-white/45 text-brand-muted hover:border-brand-accent hover:text-brand-accent"
@@ -42,7 +47,7 @@ function LookbookPage() {
               >
                 <span className="h-2 w-2 rotate-45 border border-current" />
                 {filter}
-              </button>
+              </motion.button>
             ))}
           </div>
         </SectionWrapper>
@@ -53,24 +58,22 @@ function LookbookPage() {
               <motion.figure
                 key={`${item.title}-${item.category}`}
                 variants={fadeUp}
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.34, ease: easeLuxury }}
+                whileHover={cardHover}
                 className={`group relative overflow-hidden rounded-[1.3rem] border border-[color:var(--color-brand-border)] bg-white/46 shadow-[0_16px_34px_rgba(45,31,23,0.04)] ${item.span}`}
               >
                 <button type="button" onClick={() => setSelected(item)} className="relative h-full min-h-[19rem] w-full overflow-hidden text-left">
-                  <motion.img
+                  <ImageReveal
                     src={item.image}
                     alt={item.title}
-                    className="h-full w-full object-cover"
-                    whileHover={{ scale: 1.05, filter: "brightness(1.05) contrast(1.03)" }}
-                    transition={{ duration: 0.42, ease: easeLuxury }}
+                    className="h-full min-h-[19rem]"
+                    imgClassName="h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/66 via-brand-dark/12 to-transparent transition duration-500 group-hover:from-brand-dark/74" />
                   <figcaption className="absolute inset-x-0 bottom-0 z-10 space-y-2 p-6 text-white">
-                    <p className="font-heading text-[10px] font-bold uppercase tracking-[0.3em] text-white/68">
+                    <p className="type-eyebrow text-[10px] text-white/68">
                       {item.category}
                     </p>
-                    <p className="font-heading text-[1.75rem] font-bold leading-tight">{item.title}</p>
+                    <p className="type-subheading text-[1.75rem] text-white">{item.title}</p>
                   </figcaption>
                 </button>
               </motion.figure>
@@ -105,22 +108,21 @@ function LookbookPage() {
                     <X size={18} />
                   </button>
                   <div className="grid gap-0 md:grid-cols-[1.1fr_0.9fr]">
-                    <img src={selected.image} alt={selected.title} className="h-[32rem] w-full object-cover md:h-[82vh]" />
+                    <ImageReveal
+                      src={selected.image}
+                      alt={selected.title}
+                      className="h-[32rem] md:h-[82vh]"
+                      imgClassName="h-[32rem] w-full object-cover md:h-[82vh]"
+                      hover={false}
+                      parallax={false}
+                    />
                     <div className="flex items-end p-8 md:p-10">
                       <div className="space-y-4 text-white">
-                        <div className="flex items-center gap-3">
-                          <span className="h-[1px] w-10 bg-brand-accent/70" />
-                          <span className="h-2.5 w-2.5 rotate-45 border border-brand-accent" />
-                          <p className="font-heading text-[11px] font-bold uppercase tracking-[0.3em] text-brand-accent">
-                            {selected.category}
-                          </p>
-                        </div>
-                        <h2 className="font-heading text-[2.4rem] font-bold leading-[0.96] tracking-[-0.03em]">
-                          {selected.title}
-                        </h2>
-                        <p className="max-w-md text-[1rem] leading-8 text-white/70">
+                        <Eyebrow dark>{selected.category}</Eyebrow>
+                        <h2 className="type-heading text-white md:text-[clamp(34px,4vw,52px)]">{selected.title}</h2>
+                        <Paragraph dark max="max-w-md">
                           A curated NOIR ATELIER lookbook frame shaped for campaign rhythm, clothing detail, and premium visual continuity.
-                        </p>
+                        </Paragraph>
                       </div>
                     </div>
                   </div>

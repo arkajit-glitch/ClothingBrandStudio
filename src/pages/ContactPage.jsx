@@ -1,6 +1,7 @@
 import { Instagram, MapPinned, MessageCircle, Phone } from "lucide-react";
 import MotionSection from "../components/MotionSection";
 import PageTransition from "../components/PageTransition";
+import Paragraph from "../components/Paragraph";
 import SectionHeading from "../components/SectionHeading";
 import SectionWrapper from "../components/SectionWrapper";
 
@@ -19,26 +20,26 @@ function ContactPage() {
             <MotionSection className="space-y-5 rounded-[1.35rem] border border-[color:var(--color-brand-border)] bg-white/52 p-7 shadow-[0_18px_38px_rgba(43,31,22,0.05)] md:p-9">
               <div className="grid gap-5 md:grid-cols-2">
                 <label className="space-y-2">
-                  <span className="font-heading text-[11px] font-bold uppercase tracking-[0.24em] text-brand-muted">
+                  <span className="type-eyebrow text-brand-muted">
                     Name
                   </span>
                   <input className="w-full border border-[color:var(--color-brand-border)] bg-brand-bg-soft px-4 py-3.5 outline-none transition focus:border-brand-accent" />
                 </label>
                 <label className="space-y-2">
-                  <span className="font-heading text-[11px] font-bold uppercase tracking-[0.24em] text-brand-muted">
+                  <span className="type-eyebrow text-brand-muted">
                     Email
                   </span>
                   <input className="w-full border border-[color:var(--color-brand-border)] bg-brand-bg-soft px-4 py-3.5 outline-none transition focus:border-brand-accent" />
                 </label>
               </div>
               <label className="space-y-2">
-                <span className="font-heading text-[11px] font-bold uppercase tracking-[0.24em] text-brand-muted">
+                <span className="type-eyebrow text-brand-muted">
                   Brand / Studio
                 </span>
                 <input className="w-full border border-[color:var(--color-brand-border)] bg-brand-bg-soft px-4 py-3.5 outline-none transition focus:border-brand-accent" />
               </label>
               <label className="space-y-2">
-                <span className="font-heading text-[11px] font-bold uppercase tracking-[0.24em] text-brand-muted">
+                <span className="type-eyebrow text-brand-muted">
                   Message
                 </span>
                 <textarea
@@ -48,9 +49,9 @@ function ContactPage() {
               </label>
               <button
                 type="button"
-                className="group inline-flex items-center justify-center gap-3 bg-brand-text px-6 py-3.5 font-heading text-[11px] font-bold uppercase tracking-[0.24em] text-white transition hover:bg-brand-dark"
+                className="group inline-flex items-center justify-center gap-3 bg-brand-text px-6 py-3.5 type-eyebrow text-white transition hover:bg-brand-dark"
               >
-                <span className="h-2.5 w-2.5 rotate-45 border border-current" />
+                <span className="h-2 w-2 rotate-45 border border-current" />
                 Send Inquiry
               </button>
             </MotionSection>
@@ -60,29 +61,29 @@ function ContactPage() {
                 <div className="flex items-start gap-4">
                   <Phone size={18} className="mt-1 text-brand-accent" />
                   <div>
-                    <p className="font-heading text-sm font-bold uppercase tracking-[0.22em]">Phone</p>
-                    <p className="mt-2 text-brand-muted">+91 98765 43210</p>
+                    <p className="type-eyebrow text-brand-text">Phone</p>
+                    <Paragraph className="mt-2" max="max-w-none">+91 98765 43210</Paragraph>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <Instagram size={18} className="mt-1 text-brand-accent" />
                   <div>
-                    <p className="font-heading text-sm font-bold uppercase tracking-[0.22em]">Instagram</p>
-                    <p className="mt-2 text-brand-muted">@noiratelierstudio</p>
+                    <p className="type-eyebrow text-brand-text">Instagram</p>
+                    <Paragraph className="mt-2" max="max-w-none">@noiratelierstudio</Paragraph>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <MessageCircle size={18} className="mt-1 text-brand-accent" />
                   <div>
-                    <p className="font-heading text-sm font-bold uppercase tracking-[0.22em]">WhatsApp</p>
-                    <p className="mt-2 text-brand-muted">Message for quick store and brand inquiries.</p>
+                    <p className="type-eyebrow text-brand-text">WhatsApp</p>
+                    <Paragraph className="mt-2" max="max-w-none">Message for quick store and brand inquiries.</Paragraph>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <MapPinned size={18} className="mt-1 text-brand-accent" />
                   <div>
-                    <p className="font-heading text-sm font-bold uppercase tracking-[0.22em]">Store Address</p>
-                    <p className="mt-2 text-brand-muted">Fashion District Placeholder, City, Country</p>
+                    <p className="type-eyebrow text-brand-text">Store Address</p>
+                    <Paragraph className="mt-2" max="max-w-none">Fashion District Placeholder, City, Country</Paragraph>
                   </div>
                 </div>
               </div>

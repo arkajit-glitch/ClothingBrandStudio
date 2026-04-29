@@ -1,6 +1,7 @@
 import MotionSection from "../components/MotionSection";
 import PageTransition from "../components/PageTransition";
 import SectionHeading from "../components/SectionHeading";
+import Paragraph from "../components/Paragraph";
 import SectionWrapper from "../components/SectionWrapper";
 import StaggerGrid from "../components/StaggerGrid";
 import { aboutBlocks, identitySpotlight } from "../data/siteContent";
@@ -38,11 +39,11 @@ function AboutPage() {
               >
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <span className="h-[1px] w-10 bg-brand-accent/70" />
-                    <span className="h-2.5 w-2.5 rotate-45 border border-brand-accent" />
+                    <span className="h-[1px] w-9 bg-brand-accent/58" />
+                    <span className="h-2 w-2 rotate-45 border border-brand-accent" />
                   </div>
-                  <h2 className="font-heading text-3xl font-bold leading-tight">{item.title}</h2>
-                  <p className="text-base leading-8 text-brand-muted">{item.text}</p>
+                  <h2 className="type-subheading text-brand-text">{item.title}</h2>
+                  <Paragraph max="max-w-none">{item.text}</Paragraph>
                 </div>
               </MotionSection>
             ))}

@@ -18,7 +18,7 @@ function TestimonialCard({ quote, name, role, dark = false }) {
       </div>
       <p className={`text-[1.06rem] leading-8 ${dark ? "text-white/84" : "text-brand-muted"}`}>“{quote}”</p>
       <div>
-        <p className="font-heading text-sm font-bold uppercase tracking-[0.2em]">{name}</p>
+        <p className="type-eyebrow text-brand-text dark:text-white">{name}</p>
         <p className={`mt-2 text-sm ${dark ? "text-white/60" : "text-brand-muted"}`}>{role}</p>
       </div>
     </motion.article>

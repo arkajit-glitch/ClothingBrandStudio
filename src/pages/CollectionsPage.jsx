@@ -5,6 +5,8 @@ import SectionWrapper from "../components/SectionWrapper";
 import StaggerGrid from "../components/StaggerGrid";
 import ImageCard from "../components/ImageCard";
 import ButtonLink from "../components/ButtonLink";
+import Eyebrow from "../components/Eyebrow";
+import Paragraph from "../components/Paragraph";
 import { collectionCards, editorialShowcase } from "../data/siteContent";
 
 function CollectionsPage() {
@@ -21,16 +23,14 @@ function CollectionsPage() {
               />
               <div className="flex items-center px-6 py-10 md:px-10">
                 <div className="space-y-6">
-                  <p className="font-heading text-[11px] font-bold uppercase tracking-[0.34em] text-brand-accent">
-                    Collections
-                  </p>
-                  <h1 className="font-heading text-4xl font-bold leading-[0.95] tracking-[-0.04em] md:text-[4.5rem]">
+                  <Eyebrow line={false}>Collections</Eyebrow>
+                  <h1 className="type-display max-w-[12ch] text-brand-text md:text-[clamp(46px,5vw,72px)]">
                     Category-first presentation with a stronger campaign point of view.
                   </h1>
-                  <p className="max-w-xl text-lg leading-8 text-brand-muted">
+                  <Paragraph max="max-w-xl">
                     The collections are framed as editorial directions so each category carries its own
                     mood, silhouette, and business identity.
-                  </p>
+                  </Paragraph>
                   <ButtonLink to="/contact">Discuss Your Collection</ButtonLink>
                 </div>
               </div>
@@ -43,11 +43,11 @@ function CollectionsPage() {
             <MotionSection key={block.title} className="rounded-[1.25rem] border border-[color:var(--color-brand-border)] bg-white/56 p-8 shadow-[0_16px_34px_rgba(40,30,24,0.05)]">
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <span className="h-[1px] w-10 bg-brand-accent/70" />
-                  <span className="h-2.5 w-2.5 rotate-45 border border-brand-accent" />
+                  <span className="h-[1px] w-9 bg-brand-accent/58" />
+                  <span className="h-2 w-2 rotate-45 border border-brand-accent" />
                 </div>
-                <h2 className="font-heading text-[1.85rem] font-bold leading-tight">{block.title}</h2>
-                <p className="text-base leading-8 text-brand-muted">{block.text}</p>
+                <h2 className="type-subheading text-brand-text">{block.title}</h2>
+                <Paragraph max="max-w-none">{block.text}</Paragraph>
               </div>
             </MotionSection>
           ))}

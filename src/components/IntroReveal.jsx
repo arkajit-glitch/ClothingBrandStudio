@@ -135,7 +135,7 @@ function IntroReveal({ visible, onComplete }) {
                   <BrandLockup
                     shared
                     className="gap-4"
-                    textClassName="text-[clamp(1.6rem,4vw,3.7rem)] tracking-[0.42em] text-brand-bg-soft"
+                    textClassName="text-[clamp(1.6rem,4vw,3.7rem)] tracking-[0.32em] text-brand-bg-soft"
                     markClassName="h-4.5 w-4.5 border-brand-accent shadow-[0_0_18px_rgba(184,121,69,0.22)]"
                   />
                 </motion.div>
@@ -153,7 +153,7 @@ function IntroReveal({ visible, onComplete }) {
                       aria-hidden="true"
                       initial={{ opacity: 0.18 }}
                       animate={{ opacity: 0.22 }}
-                      className="pointer-events-none absolute inset-0 flex items-center justify-center font-heading text-[clamp(1.7rem,4vw,4rem)] font-extrabold uppercase leading-none tracking-[0.22em] text-[rgba(247,241,232,0.22)] md:tracking-[0.26em]"
+                      className="pointer-events-none absolute inset-0 flex items-center justify-center type-display text-[clamp(1.7rem,4vw,4rem)] leading-none tracking-[0.18em] text-[rgba(247,241,232,0.22)] md:tracking-[0.22em]"
                     >
                       NOIR ATELIER
                     </motion.span>
@@ -162,7 +162,7 @@ function IntroReveal({ visible, onComplete }) {
                       variants={letterContainer}
                       initial="hidden"
                       animate="visible"
-                      className="intro-brand-word relative flex flex-wrap justify-center gap-x-1 font-heading text-[clamp(1.7rem,4vw,4rem)] font-extrabold uppercase leading-none text-brand-bg-soft md:tracking-[0.26em]"
+                      className="intro-brand-word relative flex flex-wrap justify-center gap-x-1 type-display text-[clamp(1.7rem,4vw,4rem)] leading-none text-brand-bg-soft md:tracking-[0.22em]"
                     >
                       {letters.map((letter, index) => (
                         <motion.span key={`${letter}-${index}`} variants={letterItem} className="intro-letter inline-block">
@@ -178,7 +178,7 @@ function IntroReveal({ visible, onComplete }) {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: reduceMotion ? 0.14 : 1.5, duration: 0.78, ease: "easeOut" }}
-                className="mt-7 max-w-xl text-[11px] font-semibold uppercase tracking-[0.34em] text-[rgba(247,241,232,0.56)]"
+                className="type-eyebrow mt-7 max-w-xl text-[rgba(247,241,232,0.56)]"
               >
                 Editorial clothing identity for a more lasting first impression
               </motion.p>

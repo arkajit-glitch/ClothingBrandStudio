@@ -11,13 +11,13 @@ function StatsRow({ stats, dark = false }) {
             <span className={`h-2.5 w-2.5 rotate-45 border ${dark ? "border-brand-accent" : "border-brand-accent"}`} />
           </div>
           <p
-            className={`font-heading text-4xl font-bold tracking-[-0.03em] md:text-5xl ${
+            className={`type-heading text-[2.5rem] md:text-[3rem] ${
               dark ? "text-white" : "text-brand-text"
             }`}
           >
             {stat.value}
           </p>
-          <p className={`text-sm uppercase tracking-[0.2em] ${dark ? "text-white/56" : "text-brand-muted"}`}>
+          <p className={`type-eyebrow text-[11px] ${dark ? "text-white/56" : "text-brand-muted"}`}>
             {stat.label}
           </p>
         </motion.div>

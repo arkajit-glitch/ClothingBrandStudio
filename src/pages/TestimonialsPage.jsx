@@ -29,7 +29,7 @@ function TestimonialsPage() {
 
           <StaggerGrid className="grid gap-4 rounded-[1.25rem] border border-dashed border-[color:var(--color-brand-border)] bg-white/36 p-7 md:grid-cols-3">
             {featuredMentions.map((item) => (
-              <MotionSection key={item} className="font-heading text-sm font-bold uppercase tracking-[0.24em] text-brand-muted">
+              <MotionSection key={item} className="type-eyebrow text-brand-muted">
                 {item}
               </MotionSection>
             ))}

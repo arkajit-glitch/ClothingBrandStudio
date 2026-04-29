@@ -1,6 +1,7 @@
 import { Brush, Camera, LayoutGrid, Megaphone, Monitor } from "lucide-react";
 import MotionSection from "../components/MotionSection";
 import PageTransition from "../components/PageTransition";
+import Paragraph from "../components/Paragraph";
 import SectionHeading from "../components/SectionHeading";
 import SectionWrapper from "../components/SectionWrapper";
 import StaggerGrid from "../components/StaggerGrid";
@@ -40,10 +41,10 @@ function ServicesPage() {
                   <div className="space-y-5">
                     <div className="flex items-center justify-between">
                       <Icon size={22} className="text-brand-accent" />
-                      <span className="h-2.5 w-2.5 rotate-45 border border-brand-accent" />
+                      <span className="h-2 w-2 rotate-45 border border-brand-accent" />
                     </div>
-                    <h2 className="font-heading text-2xl font-bold text-white">{service.title}</h2>
-                    <p className="text-base leading-8 text-white/72">{service.text}</p>
+                    <h2 className="type-subheading text-white">{service.title}</h2>
+                    <Paragraph dark max="max-w-none">{service.text}</Paragraph>
                   </div>
                 </MotionSection>
               );

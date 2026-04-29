@@ -1,15 +1,17 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Instagram, Menu, MessageCircle, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { navLinks } from "../data/siteContent";
 import BrandLockup from "./BrandLockup";
 import ButtonLink from "./ButtonLink";
+import Paragraph from "./Paragraph";
 
 function SiteLayout() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const shellRef = useRef(null);
 
   useEffect(() => {
     setIsOpen(false);
@@ -23,9 +25,45 @@ function SiteLayout() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 769px)");
+    if (!mediaQuery.matches) return undefined;
+
+    let frameId = 0;
+    const updatePointer = (event) => {
+      if (frameId) window.cancelAnimationFrame(frameId);
+      frameId = window.requestAnimationFrame(() => {
+        const x = ((event.clientX / window.innerWidth) - 0.5) * 16;
+        const y = ((event.clientY / window.innerHeight) - 0.5) * 16;
+        shellRef.current?.style.setProperty("--ambient-pointer-x", `${x.toFixed(2)}px`);
+        shellRef.current?.style.setProperty("--ambient-pointer-y", `${y.toFixed(2)}px`);
+      });
+    };
+
+    const resetPointer = () => {
+      shellRef.current?.style.setProperty("--ambient-pointer-x", "0px");
+      shellRef.current?.style.setProperty("--ambient-pointer-y", "0px");
+    };
+
+    window.addEventListener("mousemove", updatePointer, { passive: true });
+    window.addEventListener("mouseleave", resetPointer);
+
+    return () => {
+      if (frameId) window.cancelAnimationFrame(frameId);
+      window.removeEventListener("mousemove", updatePointer);
+      window.removeEventListener("mouseleave", resetPointer);
+    };
+  }, []);
+
   return (
-    <div className="relative min-h-screen bg-transparent text-brand-text">
+    <div
+      ref={shellRef}
+      style={{ "--ambient-pointer-x": "0px", "--ambient-pointer-y": "0px" }}
+      className="relative min-h-screen bg-transparent text-brand-text"
+    >
       <div className="site-ambient" aria-hidden="true" />
+      <div className="site-ambient-mesh" aria-hidden="true" />
+      <div className="site-ambient-diamond" aria-hidden="true" />
       <div className="site-grain" aria-hidden="true" />
       <header
         className={`sticky top-0 z-40 border-b transition duration-300 ${
@@ -43,7 +81,7 @@ function SiteLayout() {
                 key={link.href}
                 to={link.href}
                 className={({ isActive }) =>
-                  `relative font-heading text-[11px] font-bold uppercase tracking-[0.24em] transition ${
+                  `relative type-eyebrow tracking-[0.24em] transition ${
                     isActive ? "text-brand-accent" : "text-brand-text hover:text-brand-accent"
                   }`
                 }
@@ -54,7 +92,7 @@ function SiteLayout() {
           </nav>
 
           <div className="hidden items-center gap-4 lg:flex">
-            <ButtonLink to="/contact" className="px-5 py-3">Contact Us</ButtonLink>
+            <ButtonLink to="/shop" className="px-5 py-3">Shop Now</ButtonLink>
           </div>
 
           <button
@@ -81,12 +119,12 @@ function SiteLayout() {
                   <NavLink
                     key={link.href}
                     to={link.href}
-                    className="font-heading text-xs font-bold uppercase tracking-[0.22em] text-brand-text"
+                    className="type-eyebrow text-brand-text"
                   >
                     {link.label}
                   </NavLink>
                 ))}
-                <ButtonLink to="/contact" className="mt-2">Contact Us</ButtonLink>
+                <ButtonLink to="/shop" className="mt-2">Shop Now</ButtonLink>
               </div>
             </motion.div>
           ) : null}
@@ -99,10 +137,10 @@ function SiteLayout() {
         <div className="mx-auto grid max-w-[1240px] gap-10 px-4 py-16 md:grid-cols-[1.2fr_0.8fr_0.8fr] md:px-6">
           <div className="space-y-5">
             <BrandLockup />
-            <p className="max-w-md text-base leading-8 text-brand-muted">
+            <Paragraph max="max-w-md">
               Clothing that speaks before the logo does. Premium clothing branding studio for labels
               that want a clearer visual identity and stronger online presence.
-            </p>
+            </Paragraph>
             <div className="flex items-center gap-3">
               <span className="h-[1px] w-12 bg-brand-accent/55" />
               <span className="h-2 w-2 rotate-45 border border-brand-accent" />
@@ -110,7 +148,7 @@ function SiteLayout() {
           </div>
 
           <div className="space-y-4">
-            <p className="font-heading text-xs font-bold uppercase tracking-[0.26em] text-brand-text">Quick Links</p>
+            <p className="type-eyebrow text-brand-text">Quick Links</p>
             <div className="grid gap-3 text-brand-muted">
               {navLinks.map((link) => (
                 <Link key={link.href} to={link.href} className="hover:text-brand-accent">
@@ -124,7 +162,7 @@ function SiteLayout() {
           </div>
 
           <div className="space-y-4">
-            <p className="font-heading text-xs font-bold uppercase tracking-[0.26em] text-brand-text">Contact</p>
+            <p className="type-eyebrow text-brand-text">Contact</p>
             <div className="space-y-2 text-brand-muted">
               <p>Studio Address Placeholder, Fashion District</p>
               <p>hello@noiratelier.com</p>
