@@ -1,0 +1,11 @@
+node_modules/
+dist/
+
+full-premium-pass.png
+hero-check*.png
+hero-fixed-full*.png
+hero-slider-check*.png
+hero-slider-subtle.png
+
+.DS_Store
+Thumbs.db
